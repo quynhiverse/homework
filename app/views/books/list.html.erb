@@ -1,0 +1,29 @@
+<html>
+<head>
+  <style type="text/css">
+  table {
+    border-collapse: collapse;
+  }
+  th, td {
+    text-align: left;
+    padding: 10px;
+    border: 1px solid #ccc;
+  }
+  </style>
+</head>
+<body>
+  <% all_books = Book.read %>
+  <table>
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+    </tr>
+    <% all_books.each do |book| %>
+      <tr>
+        <td><%= book.title %></td>
+        <td><%= book.author %></td>
+      </tr>
+    <% end %>
+  </table>
+</body>
+</html>

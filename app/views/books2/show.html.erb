@@ -1,0 +1,18 @@
+<h1>Book Details</h1>
+<p>
+  <%= link_to "Home", "/" %> | <%= link_to "Book List", "/books" %>
+</p>
+
+<% book = Book2.find_by("title_id" => params["id"]) %>
+<% rating = Rating.where("title_id" => book.title_id) %>
+
+<h3> Title: <%= book.title %> </h3>
+<h3> Price: <%= book.price %> </h3>
+<h3> Average Star Rating: <%= rating.average ("rating") %> </h3>
+<h3>Reviews</h3>
+  <% rating.each do |rating| %>
+    <li>
+      <strong><%= rating.review %>
+    </li>
+
+  <% end %>

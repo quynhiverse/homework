@@ -1,0 +1,15 @@
+<h1>Book Reviews</h1>
+<p>
+  <%= link_to "Home", "/" %>
+</p>
+
+<ul>
+  <% the_book = Book2.read %>
+
+  <% the_book.each do |book| %>
+  <% rating = Rating.where("title_id" => book.title_id) %>
+
+  <li> <%= link_to book.title, "/books/#{book.title_id}" %> - <%= rating.average ("rating") %> </li>
+
+  <% end %>
+</ul>
